@@ -1,0 +1,146 @@
+
+<html>
+  <template id="Login">
+
+    <style>
+      :host {
+        --orange: #e67e22;
+        --space: 1.5em;
+        
+
+      }
+      .idlogin{
+          
+          box-shadow: 0 0 10px;
+          color: gray;
+          opacity: 0.9;
+          -moz-opacity: 0.9;
+          filter: alpha(opacity=60);
+          -khtml-opacity: 0.9;
+          
+          border-color: #01860E;
+          border-style: solid;
+          border-radius: 5px;
+          border-width: 1.2px;
+          
+          position: absolute;
+          left: 50%;
+          top:30%;
+          width: 370px;
+          margin-top: -110px;
+          margin-left: -150px;
+          max-width: 30em;
+          padding-bottom: 10px;
+          padding: 10px;
+          padding-top: 10px;
+          background: white;
+
+        }
+        .idlogin:hover{ 
+          color: #1F5F03;
+        }
+
+        
+       
+        input[type="email"],
+        input[type="password"] {
+           border: 1px solid;
+           border-radius: 10px;
+           border-color:  #6FABFC;
+           display: block;
+           font-size: 1em;
+           height: 2em;
+           text-align: center;
+           width: 80%;
+           margin-left: auto;
+           margin-right: auto;
+        }
+        h3{
+
+          margin-left: 80px;
+          color: #000000;
+        }
+        span, label{
+          
+          color: #000000;
+
+        }
+
+      
+      .btn {
+        background-color: var(--orange);
+        border: 0;
+        border-radius: 100px;
+        color: white;
+        padding: var(--space);
+        text-transform: uppercase;
+      }
+
+      button:hover {
+
+         color: #FF0000;
+
+       }
+      
+              </style>
+  
+  <div class="caja">
+  <div class="idlogin">
+
+  <!--En el action se inserta el archivvo .php que procesara los datos obtenidos
+      que los recibira con una una peticion POST
+    -->
+  <form action="" method="POST" role="form">
+      <div class="form-group">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3>Sing Up</h3>
+          </div>
+          
+          <div class="panel-body">
+            <span >Correo</span><br>
+            <input type="email" name="correo" required><br><br>
+            <span> Contraseña</span><br>
+            <input type="password" name="password" required><br><br>
+
+          <label>
+            <input type="checkbox" name="recordar">
+            Recordar Contraseña
+          </label>
+    
+          </div>
+        </div>
+      </div><br>
+
+    <center><button type="submit" class="btn" >Entrar</button><center>
+    
+
+  </form>
+
+</div>
+</div>
+  </template>
+
+  <script>
+    class GetFormulario extends HTMLElement {
+      constructor () {
+        super();
+        this.importDocument = document.currentScript.ownerDocument;
+      }
+
+      connectedCallback () {
+        let shadowRoot = this.attachShadow({mode: 'open'});
+        const t = this.importDocument.querySelector('#Login');
+        const instance = t.content.cloneNode(true);
+        shadowRoot.appendChild(instance);
+      }
+    }
+
+    window.customElements.define('obtener-login', GetFormulario);
+
+
+  </script>
+
+
+</html>
+ 
